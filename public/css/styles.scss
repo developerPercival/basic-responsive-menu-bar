@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #101010;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// navbar container
+.header {
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fff;
+  padding: 0.5rem;
+
+  // navbar
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+    .nav-logo {
+      font-size: 2.1rem;
+      font-weight: 500;
+      color: #482ff7;
+    }
+
+    // navmenu
+    .nav-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      //   navitem
+      .nav-item {
+        margin-left: 5rem;
+
+        // navlink
+        .nav-link {
+          font-size: 1.6rem;
+          font-weight: 400;
+          color: #475569;
+
+          transition: color 200ms ease-in-out;
+        }
+
+        // hover state
+        .nav-link:hover {
+          color: #482ff7;
+        }
+      }
+    }
+  }
+}
+
+// hamburger container
+.hamburger {
+  display: none;
+}
+
+// hamburger bar
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3 ease-in-out;
+  background-color: #101010;
+
+  transition: transform 200ms ease-in-out;
+}
+
+// Responsive feature
+
+// below 768px
+@media (max-width: 768px) {
+  // nav menu
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+
+  // hamburger
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 2rem 0;
+  }
+
+  // hamburger animation
+
+  //first bar
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  //Second bar
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  //third bar
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
